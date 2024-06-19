@@ -1,0 +1,338 @@
+#menu-principal {
+    background-color: red;
+}
+
+.logo {
+    font-size: 45px;
+    color: white;
+    padding: 10px 0px;
+}
+
+.nombre-tienda {
+    display: inline;
+    font-size: 23px;
+    color: white;
+    font-weight: 800;
+    margin-left: 12px;
+}
+
+.item-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.item-container:hover {
+    transition: 0.4s;
+    background-color: whitesmoke;
+}
+
+.item-menu {
+    height: 50%;
+    font-size: 15px;
+    color: white;
+    font-weight: 700;
+    transition: 0.4s;
+}
+
+.item-menu:hover {
+    transition: 0.4s;
+    color: black;
+}
+
+.icon-menu {
+    margin-top: 30px;
+    font-size: 25px;
+    color: white;
+    margin-left: 20px;
+}
+
+.header-productos{
+    margin: 20px 0px 15px 10px;
+    font-size: 20px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    color: black;
+}
+
+.text-card-phone {
+    font-size: 12px;
+}
+
+.envio-icon {
+    font-size: 30px;
+    padding: 10px 0px 0px 10px;
+    color: red;
+}
+
+.envio-tittle {
+    display: inline;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.envio-text {
+    margin: 0px;
+    font-size: 12px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+
+.mensaje-oferta{
+    margin: 2px 0;
+    border-radius: 5px;
+    border: 1px solid #b7dde3;
+    background-color: #D1ECF1;
+}
+
+.descuento {
+    display: inline;
+    text-decoration-line: line-through;
+    font-weight: 600;
+    color: gray;
+}
+
+.footer-tittles {
+    font-size: 13px;
+    color: white;
+    font-weight: 700;
+    font-family: "TradeGothicForNike","Helvetica",sans-serif;
+    margin: 0px;
+    margin-bottom: 5px;
+}
+
+.footer-words {
+    margin: 0;
+    font-size: 12px;
+    color: white;
+}
+
+.social-media {
+    font-size: 25px;
+    color: white;
+    margin-left: 14px;
+}
+
+.final-words {
+    display: inline; 
+    font-size: 10px; 
+    color: white;
+    margin-left: 10px;
+}
+
+/* Estilo para vista nosotros.html */
+
+.nosotros-row {
+    padding: 20px 0px;
+}
+
+.nosotros-tittle {
+    font-weight: 600;
+}
+
+.nosotros-photo {
+    width: 400px;
+    height: 200px;
+    border-radius: 3px;
+}
+
+.producto:hover {
+    cursor: pointer;
+}
+
+/* Estilos carrito de compras */
+.img-carrito {
+    width: 128px;
+    height: 114px;
+}
+
+.producto-carrito {
+    background: white;
+    padding: 20px;
+    margin: 30px 0px;
+    position: relative;
+}
+
+/* Propiedad filter sirve para desenfocar */
+.producto-carrito::after {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    content: ' ';
+    background-image: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    width: 100%;
+    height: 100%;
+    filter: blur(6px);
+    z-index: -1;
+}
+
+.detalle-compra {
+    color: gray;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*Estilo para el cambio de color*/
+:root {
+    --color-fuente: black;
+    --color-fondo: white;
+    --brightness-img: 100%;
+    --envio-fondo: #F5F5F5;
+    --mensaje-oferta: #D1ECF1;
+    --producto-fondo: white;
+}
+
+[tema="light"]{
+    --color-fuente: white;
+    --color-fondo: rgb(44, 44, 44);
+    --brightness-img: 85%;
+    --envio-fondo: #9b9b9b;
+    --mensaje-oferta: #8f2121;
+    --producto-fondo: rgb(23, 37, 58);
+}
+
+@media screen {
+    .body {
+        background-color: var(--color-fondo);
+        color: var(--color-fuente);
+    }
+
+    .header-productos {
+        color: var(--color-fuente);
+    }
+
+    .card-body {
+        background-color: var(--color-fondo);
+        color: var(--color-fuente);
+    }
+
+    .img-fluid {
+        background-color: var(--color-fondo);
+    }
+
+    img {
+        filter: brightness(var(--brightness-img));
+    }
+    
+    .envio-bar{
+        background-color: var(--envio-fondo);
+        color: var(--color-fuente);
+    }
+
+    .footer-tittles{
+        color: var(--color-fondo);
+    }
+
+    .footer-words{
+        color: var(--color-fondo);
+    }
+
+    .social-media{
+        color: var(--color-fondo);
+    }
+
+    .final-words{
+        color: var(--color-fondo);
+    }
+    
+    .derechos-reservados{
+        color: var(--color-fondo);
+    }
+    
+    /* Estilos carrito de compras */
+    .img-carrito {
+        width: 128px;
+        height: 114px;
+    }
+
+    .producto-carrito {
+        background: var(--producto-fondo);
+        padding: 20px;
+        margin: 30px 0px;
+        position: relative;
+    }
+
+    .producto-carrito::after {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        content: ' ';
+        background-image: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+        width: 100%;
+        height: 100%;
+        filter: blur(6px);
+        z-index: -1;
+    }
+
+    .detalle-compra {
+        color: gray;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .mensaje-oferta{
+        margin: 2px 0;
+        border-radius: 5px;
+        border: 1px solid #b7dde3;
+        background-color: var(--mensaje-oferta);
+    }
+
+}
+
+/*Estilo para la checkbox*/
+#switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  #switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color:var(--color-fondo);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color:var(--color-fuente);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: var(--color-fondo);
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px var(--color-fondo);
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }

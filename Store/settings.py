@@ -120,6 +120,11 @@ USE_TZ = True
 # Ruta de los archivos estáticos
 STATIC_URL = '/static/'
 
+# Ruta de los archivos media
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # Ruta donde se encuentran los archivos estáticos
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),

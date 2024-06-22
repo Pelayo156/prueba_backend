@@ -1,23 +1,11 @@
 from django.shortcuts import render
 from . import models
 
-import random
-
-# Función para retornar valores aleatorios de una lista
-def randomProducts(products_list, total):
-    products = []
-
-    for i in range(0, total):
-        aleatory = products_list[random.randint(0, len(products_list) - 1)]
-        products.append(aleatory)
-
-    return products
-
 # View para página principal
 def index(request):
     # Obtención de productos
-    products1 = randomProducts(models.Product.objects.all(), 4)
-    products2 = randomProducts(models.Product.objects.all(), 4)
+    products1 = models.Product.objects.all()[0:4]
+    products2 = models.Product.objects.all()[4:8]
 
     context = {
         'products1': products1,

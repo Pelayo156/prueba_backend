@@ -6,7 +6,7 @@ class Type(models.Model):
     name = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.type_id + ".- " + self.name
+        return  self.name + f" ({str(self.type_id)})"
 
 # Modelo para Categoría
 class Category(models.Model):
@@ -14,7 +14,7 @@ class Category(models.Model):
     name = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.category_id + ".- " + self.name
+        return self.name + f" ({str(self.category_id)})"
 
 # Modelo para Producto
 class Product(models.Model):
@@ -26,4 +26,4 @@ class Product(models.Model):
     category_id = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.product_id + ".- " + self.name
+        return self.name + f" ({str(self.product_id)})"

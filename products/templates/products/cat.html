@@ -1,10 +1,11 @@
 {% extends 'products/layout.html' %}
+{% load static %}
 
 {% block title %}Gato{% endblock %}
 {% block content %}
 <!--Header image-->
 <div class="container-lg" style="margin: 20px; text-align: center;">
-    <img src="./images/gato-banner.jpg" alt="Gato-Banner">
+    <img src="{% static 'images/gato-banner.jpg' %}" alt="Gato-Banner">
 </div>
 
 <!--Lista de Productos-->
@@ -13,127 +14,25 @@
         <h2>¡Productos imperdibles!</h2>
     </div>
     <div class="row">
+        {% for product in products %}
         <div class="col-12 col-sm-6 col-lg-3">
             <div class="card-m2">
-                <img class="img-fluid card-img-top" alt="100%x280" src="./images/taste-of-the-wild-gato.png">
+                <img class="img-fluid card-img-top" alt="100%x280" src="{{product.image.url}}">
             </div>
             <div class="card-body">
-                <p class="card-title">Taste of the Wild Canyon River (6.6kg) alimento para gato</p>
-                <p class="descuento">$ 59.990</p>
-                <p class="card-text" style="font-weight: 600; display: inline;">$ 40.493</p>
+                <p class="card-title">{{product.name}}</p>
+                <p class="card-text" style="font-weight: 600;">$ {{product.price}}</p>
                 <form class="mas-vendido">
                     <input type="number" name="product_id" value="17" hidden>
                     <input class="btn btn-danger comprar" type="submit" value="Agregar al carrito">
                 </form>
             </div>
         </div>
-
-        <div class="col-12 col-sm-6 col-lg-3">
-            <div class="card-m2">
-                <img class="img-fluid card-img-top" alt="100%x280" src="./images/fit_formula_adult_gato.png">
-            </div>
-            <div class="card-body">
-                <p class="card-title">Fit Formula Adulto (10kg) Alimento para gato</p>
-                <p class="card-text" style="font-weight: 600; display: inline;">$ 24.792</p>
-                <form class="mas-vendido">
-                    <input type="number" name="product_id" value="18" hidden>
-                    <input class="btn btn-danger comprar" type="submit" value="Agregar al carrito">
-                </form>
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-lg-3">
-            <div class="card-m2">
-                <img class="img-fluid card-img-top" alt="100%x280" src="./images/bravery_salmon_adult_gato.png">
-            </div>
-            <div class="card-body">
-                <p class="card-title">Bravery Salmon Adult (4kg) Alimento para gato</p>
-                <form class="mas-vendido">
-                    <input type="number" name="product_id" value="19" hidden>
-                    <input class="btn btn-danger comprar" type="submit" value="Agregar al carrito">
-                </form>
-                <p class="card-text" style="font-weight: 600;">$ 26.990</p>
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-lg-3">
-            <div class="card-m2">
-                <img class="img-fluid card-img-top" alt="100%x280" src="./images/bravery_chicken_adult_gato.png">
-            </div>
-            <div class="card-body">
-                <p class="card-title">Bravery Chicken Adult (4kg) Alimento para gato</p>
-                <form class="mas-vendido">
-                    <input type="number" name="product_id" value="20" hidden>
-                    <input class="btn btn-danger comprar" type="submit" value="Agregar al carrito">
-                </form>
-                <p class="card-text" style="font-weight: 600;">$ 26.990</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Salto de línea -->
-    <div class="row" style="margin-top: 25px;">
-        <div class="col-12 col-sm-6 col-lg-3">
-            <div class="card-m2">
-                <img class="img-fluid card-img-top" alt="100%x280" src="./images/olympus-cat-rascador-gray-breige.png">
-            </div>
-            <div class="card-body">
-                <p class="card-title">Olympus Cat Rascador gris & beige</p>
-                <p class="descuento">$ 89.990</p>
-                <p class="card-text" style="font-weight: 600; display: inline;">$ 62.990</p>
-                <form class="mas-vendido">
-                    <input type="number" name="product_id" value="21" hidden>
-                    <input class="btn btn-danger comprar" type="submit" value="Agregar al carrito">
-                </form>
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-lg-3">
-            <div class="card-m2">
-                <img class="img-fluid card-img-top" alt="100%x280" src="./images/zeecat_collar_skull_gato.png">
-            </div>
-            <div class="card-body">
-                <p class="card-title">Collar zeecat para gato con diseño de calaveras</p>
-                <p class="card-text" style="font-weight: 600;">$ 5.990</p>
-                <form class="mas-vendido">
-                    <input type="number" name="product_id" value="22" hidden>
-                    <input class="btn btn-danger comprar" type="submit" value="Agregar al carrito">
-                </form>
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-lg-3">
-            <div class="card-m2">
-                <img class="img-fluid card-img-top" alt="100%x280" src="./images/fit_formula_arena_gato.png">
-            </div>
-            <div class="card-body">
-                <p class="card-title">Fit Formula arena para gato 3.2kg</p>
-                <p class="card-text" style="font-weight: 600;">$ 14.990</p>
-                <form class="mas-vendido">
-                    <input type="number" name="product_id" value="23" hidden>
-                    <input class="btn btn-danger comprar" type="submit" value="Agregar al carrito">
-                </form>
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-lg-3">
-            <div class="card-m2">
-                <img class="img-fluid card-img-top" alt="100%x280" src="./images/odour_buster_arena_gato.png">
-            </div>
-            <div class="card-body">
-                <p class="card-title">Odour Buster arena para gato 6kg</p>
-                <p class="card-text" style="font-weight: 600;">$ 16.990</p>
-                <form class="mas-vendido">
-                    <input type="number" name="product_id" value="24" hidden>
-                    <input class="btn btn-danger comprar" type="submit" value="Agregar al carrito">
-                </form>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </section>
 
 <!--Sección informativa-->
-
 <div class="container-lg" style="margin: 20px 40px;">
     <div class="row" style="border-top: 1.5px solid black;">
         <h3 class="nosotros-tittle" style="margin-top: 40px;">Variedad de comida y snacks para tu gato</h3>

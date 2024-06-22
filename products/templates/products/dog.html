@@ -1,10 +1,11 @@
 {% extends 'products/layout.html' %}
+{% load static %}
 
 {% block title %}Perro{% endblock %}
 {% block content %}
 <!--Header image-->
 <div class="container-lg" style="margin: 20px; text-align: center;">
-    <img src="./images/perro-banner.jpg" alt="Perro-Banner">
+    <img src="{% static 'images/perro-banner.jpg' %}" alt="Perro-Banner">
 </div>
 
 <!--Lista de Productos-->
@@ -13,121 +14,21 @@
         <h2>¡Productos imperdibles!</h2>
     </div>
     <div class="row" style="margin-bottom: 25px;">
+        {% for product in products %}
         <div class="col-12 col-sm-6 col-lg-3">
             <div class="card-m2">
-                <img class="img-fluid card-img-top" alt="100%x280" src="./images/fit_formula_adult_perro.png">
+                <img class="img-fluid card-img-top" alt="100%x280" src="{{product.image.url}}">
             </div>
             <div class="card-body">
-                <p class="card-title">Fit Formula Adult (4kg) Alimento para perro</p>
-                <p class="card-text" style="font-weight: 600;">$ 26.990</p>
+                <p class="card-title">{{product.name}}</p>
+                <p class="card-text" style="font-weight: 600;">$ {{product.price}}</p>
                 <form class="mas-vendido">
                     <input type="number" name="product_id" value="9" hidden>
                     <input class="btn btn-danger comprar" type="submit" value="Agregar al carrito">
                 </form>
             </div>
         </div>
-
-        <div class="col-12 col-sm-6 col-lg-3">
-            <div class="card-m2">
-                <img class="img-fluid card-img-top" alt="100%x280" src="./images/fit_formula_adult_perro.png">
-            </div>
-            <div class="card-body">
-                <p class="card-title">Fit Formula Adult (2kg) Alimento para perro</p>
-                <p class="card-text" style="font-weight: 600;">$ 16.990</p>
-                <form class="mas-vendido">
-                    <input type="number" name="product_id" value="10" hidden>
-                    <input class="btn btn-danger comprar" type="submit" value="Agregar al carrito">
-                </form>
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-lg-3">
-            <div class="card-m2">
-                <img class="img-fluid card-img-top" alt="100%x280" src="./images/bravery_salmon_adult_perro.png">
-            </div>
-            <div class="card-body">
-                <p class="card-title">Bravery Salmon Adult (4kg) Alimento para perro</p>
-                <p class="card-text" style="font-weight: 600;">$ 26.990</p>
-                <form class="mas-vendido">
-                    <input type="number" name="product_id" value="1" hidden>
-                    <input class="btn btn-danger comprar" type="submit" value="Agregar al carrito">
-                </form>
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-lg-3">
-            <div class="card-m2">
-                <img class="img-fluid card-img-top" alt="100%x280" src="./images/bravery_chicken_adult_perro.png">
-            </div>
-            <div class="card-body">
-                <p class="card-title">Bravery Chicken Adult (4kg) Alimento para perro</p>
-                <p class="card-text" style="font-weight: 600;">$ 26.990</p>
-                <form class="mas-vendido">
-                    <input type="number" name="product_id" value="11" hidden>
-                    <input class="btn btn-danger comprar" type="submit" value="Agregar al carrito">
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- Salto de línea -->
-    <div class="row" style="margin-top: 25px;">
-        <div class="col-12 col-sm-6 col-lg-3">
-            <div class="card-m2">
-                <img class="img-fluid card-img-top" alt="100%x280" src="./images/desparasitante_bravecto_20kg.png">
-            </div>
-            <div class="card-body">
-                <p class="card-title">Desparasitante Bravecto para perros de entre 20kg-40kg</p>
-                <p class="card-text" style="font-weight: 600;">$ 47.990</p>
-                <form class="mas-vendido">
-                    <input type="number" name="product_id" value="12" hidden>
-                    <input class="btn btn-danger comprar" type="submit" value="Agregar al carrito">
-                </form>
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-lg-3">
-            <div class="card-m2">
-                <img class="img-fluid card-img-top" alt="100%x280" src="./images/desparasitante_bravecto_10kg.png">
-            </div>
-            <div class="card-body">
-                <p class="card-title">Desparasitante Bravecto para perros de entre 4.5kg-10kg</p>
-                <p class="descuento">$ 29.990</p>
-                <p class="card-text" style="font-weight: 600; display: inline;">$ 24.990</p>
-                <form class="mas-vendido">
-                    <input type="number" name="product_id" value="13" hidden>
-                    <input class="btn btn-danger comprar" type="submit" value="Agregar al carrito">
-                </form>
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-lg-3">
-            <div class="card-m2">
-                <img class="img-fluid card-img-top" alt="100%x280" src="./images/pepolli_correa_premium_m.png">
-            </div>
-            <div class="card-body">
-                <p class="card-title">Correa Pepolli Premium talla M</p>
-                <p class="card-text" style="font-weight: 600;">$ 23.990</p>
-                <form class="mas-vendido">
-                    <input type="number" name="product_id" value="14" hidden>
-                    <input class="btn btn-danger comprar" type="submit" value="Agregar al carrito">
-                </form>
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-lg-3">
-            <div class="card-m2">
-                <img class="img-fluid card-img-top" alt="100%x280" src="./images/zeedog_arnes_ajustable_atlanta.png">
-            </div>
-            <div class="card-body">
-                <p class="card-title">Zeedog arnés ajustable atlanta para perro talla L</p>
-                <p class="card-text" style="font-weight: 600;">$ 31.990</p>
-                <form class="mas-vendido">
-                    <input type="number" name="product_id" value="15" hidden>
-                    <input class="btn btn-danger comprar" type="submit" value="Agregar al carrito">
-                </form>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </section>
 

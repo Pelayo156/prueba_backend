@@ -1,4 +1,5 @@
 {% extends 'products/layout.html' %}
+{% load static %}
 
 {% block title %}Nosotros{% endblock %}
 {% block content %}
@@ -19,7 +20,7 @@
         </div>
 
         <div class="col-3">
-            <img class="nosotros-photo" src="./images/ayudar-animales-sin-hogar.jpg"
+            <img class="nosotros-photo" src="{% static 'images/ayudar-animales-sin-hogar.jpg' %}"
                 alt="Persona acariciando a perro sin hogar">
         </div>
     </div>
@@ -37,7 +38,7 @@
         </div>
 
         <div class="col-3">
-            <img class="nosotros-photo" src="./images/refugio-gatos.jpeg" alt="Refugio para gatos">
+            <img class="nosotros-photo" src="{% static 'images/refugio-gatos.jpeg' %}" alt="Refugio para gatos">
         </div>
     </div>
 
@@ -58,7 +59,7 @@
         </div>
 
         <div class="col-3">
-            <img class="nosotros-photo" src="./images/perros-y-gatos.jpeg" alt="Diversos perros y gatos">
+            <img class="nosotros-photo" src="{% static 'images/perros-y-gatos.jpeg' %}" alt="Diversos perros y gatos">
         </div>
     </div>
 </div>

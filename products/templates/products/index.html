@@ -1,4 +1,5 @@
 {% extends 'products/layout.html' %}
+{% load static %}
 
 {% block title %}Inicio{% endblock %}
 {% block content %}
@@ -35,13 +36,13 @@
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="./images/descuento_verano_inicio.jpeg" alt="First slide">
+                <img class="d-block w-100" src="{% static 'images/descuento_verano_inicio.jpeg' %}" alt="First slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="./images/descuento_todo_mpets_inicio.jpeg" alt="Second slide">
+                <img class="d-block w-100" src="{% static 'images/descuento_todo_mpets_inicio.jpeg' %}" alt="Second slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="./images/descuento_arena_inicio.jpeg" alt="Third slide">
+                <img class="d-block w-100" src="{% static 'images/descuento_arena_inicio.jpeg' %}" alt="Third slide">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -95,15 +96,13 @@
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <div class="row">
-
+                                    {% for product in products1 %}
                                     <div class="col-md-3 mb-3">
                                         <div class="card text-center" style="border: none;">
-                                            <img class="img-fluid card-img-top" alt="100%x280"
-                                                src="./images/bravery_salmon_adult_perro.png">
+                                            <img class="img-fluid card-img-top" alt="100%x280" src="{{product.image.url}}">
                                             <div class="card-body">
-                                                <p class="card-title text-left">Bravery Salmon Adult (4kg) Alimento para
-                                                    perro</p>
-                                                <p class="card-text text-left" style="font-weight: 600;">$ 26.990</p>
+                                                <p class="card-title text-left">{{product.name}}</p>
+                                                <p class="card-text text-left" style="font-weight: 600;">$ {{product.price}}</p>
                                                 <form class="mas-vendido">
                                                     <input type="number" name="product_id" value="1" hidden>
                                                     <input class="btn btn-danger comprar" type="submit"
@@ -112,139 +111,29 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="col-md-3 mb-3">
-                                        <div class="card text-center" style="border: none;">
-                                            <img class="img-fluid card-img-top" alt="100%x280"
-                                                src="./images/bravery_chicken_adult_gato.png">
-                                            <div class="card-body">
-                                                <p class="card-title text-left">Bravery Chicken Adult (2kg) Alimento
-                                                    para gato</p>
-                                                <p class="card-text text-left" style="font-weight: 600;">$ 21.990</p>
-                                                <form class="mas-vendido">
-                                                    <input type="number" name="product_id" value="2" hidden>
-                                                    <input class="btn btn-danger comprar" type="submit"
-                                                        value="Agregar al carrito">
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-3 mb-3">
-                                        <div class="card text-center" style="border: none;">
-                                            <img class="img-fluid card-img-top" alt="100%x280"
-                                                src="./images/fit_formula_arena_gato.png">
-                                            <div class="card-body">
-                                                <p class="card-title text-left">Fit Formula arena para gato 3.2kg</p>
-                                                <p class="card-text text-left" style="font-weight: 600;">$ 14.990</p>
-                                                <form class="mas-vendido">
-                                                    <input type="number" name="product_id" value="3" hidden>
-                                                    <input class="btn btn-danger comprar" type="submit"
-                                                        value="Agregar al carrito">
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-3 mb-3">
-                                        <div class="card text-center" style="border: none;">
-                                            <img class="img-fluid card-img-top" alt="100%x280"
-                                                src="./images/fit_formula_adult_gato.png">
-                                            <div class="card-body">
-                                                <p class="card-title text-left">Fit Formula Adulto (10kg) Alimento para
-                                                    gato</p>
-                                                <p class="descuento text-left">$ 30.990
-                                                <p class="card-text" style="font-weight: 600; display: inline;">$ 24.792
-                                                </p>
-                                                </p>
-                                                <form class="mas-vendido">
-                                                    <input type="number" name="product_id" value="4" hidden>
-                                                    <input class="btn btn-danger comprar" type="submit"
-                                                        value="Agregar al carrito">
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                    {% endfor %}
                                 </div>
                             </div>
 
                             <div class="carousel-item">
                                 <div class="row">
 
+                                    {% for product in products2 %}
                                     <div class="col-md-3 mb-3">
                                         <div class="card text-center" style="border: none;">
-                                            <img class="img-fluid card-img-top" alt="100%x280"
-                                                src="./images/fit_formula_adult_perro.png">
+                                            <img class="img-fluid card-img-top" alt="100%x280" src="{{product.image.url}}">
                                             <div class="card-body">
-                                                <p class="card-title text-left">Fit Formula Adulto (20kg) Alimento para
-                                                    perro</p>
-                                                <p class="descuento text-left">$ 46.990
-                                                <p class="card-text" style="font-weight: 600; display: inline;">$ 37.592
-                                                </p>
-                                                </p>
+                                                <p class="card-title text-left">{{product.name}}</p>
+                                                <p class="card-text text-left" style="font-weight: 600;">$ {{product.price}}</p>
                                                 <form class="mas-vendido">
-                                                    <input type="number" name="product_id" value="5" hidden>
+                                                    <input type="number" name="product_id" value="1" hidden>
                                                     <input class="btn btn-danger comprar" type="submit"
                                                         value="Agregar al carrito">
                                                 </form>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="col-md-3 mb-3">
-                                        <div class="card text-center" style="border: none;">
-                                            <img class="img-fluid card-img-top" alt="100%x280"
-                                                src="./images/bravery_salmon_adult_gato.png">
-                                            <div class="card-body">
-                                                <p class="card-title text-left">Bravery Salmon Adult (2kg) Alimento para
-                                                    gato</p>
-                                                <p class="card-text text-left" style="font-weight: 600;">$ 22.990</p>
-                                                <form class="mas-vendido">
-                                                    <input type="number" name="product_id" value="6" hidden>
-                                                    <input class="btn btn-danger comprar" type="submit"
-                                                        value="Agregar al carrito">
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-3 mb-3">
-                                        <div class="card text-center" style="border: none;">
-                                            <img class="img-fluid card-img-top" alt="100%x280"
-                                                src="./images/bravery_pork_adult_perro.png">
-                                            <div class="card-body">
-                                                <p class="card-title text-left">Bravery Pork Adult (2kg) Alimento para
-                                                    perro</p>
-                                                <p class="card-text text-left" style="font-weight: 600;">$ 28.990</p>
-                                                <form class="mas-vendido">
-                                                    <input type="number" name="product_id" value="7" hidden>
-                                                    <input class="btn btn-danger comprar" type="submit"
-                                                        value="Agregar al carrito">
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-3 mb-3q">
-                                        <div class="card text-center" style="border: none;">
-                                            <img class="img-fluid card-img-top" alt="100%x280"
-                                                src="./images/premier_gatos_pelo_largo.png">
-                                            <div class="card-body">
-                                                <p class="card-title text-left">Premier gatos adultos de pelo largo
-                                                    (7.5kg)</p>
-                                                <p class="descuento text-left">$ 58.738
-                                                <p class="card-text" style="font-weight: 600; display: inline;">$ 46.990
-                                                </p>
-                                                </p>
-                                                <form class="mas-vendido">
-                                                    <input type="number" name="product_id" value="8" hidden>
-                                                    <input class="btn btn-danger comprar" type="submit"
-                                                        value="Agregar al carrito">
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {% endfor %}
                                 </div>
                             </div>
 

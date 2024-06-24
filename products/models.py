@@ -27,3 +27,10 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name + f" ({str(self.product_id)})"
+
+# Modelo para Venta
+class Sale(models.Model):
+    sale_id = models.AutoField(primary_key=True)
+    products = models.ManyToManyField(Product)
+    quantity = models.IntegerField()
+    total = models.IntegerField()

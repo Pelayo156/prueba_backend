@@ -48,7 +48,7 @@ $(document).ready(function() {
                     return;
                 };
             };
-            alert("¡Registro exitoso!")  
+            alert("¡Inicio exitoso!")  
         });
     });
 });

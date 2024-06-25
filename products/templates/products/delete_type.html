@@ -1,0 +1,12 @@
+{% extends 'products/admin_layout.html' %}
+
+{% block title %}Eliminar Tipo{% endblock title %}
+{% block header %}¿Estás seguro de que deseas eliminar Tipo '{{type.name}}'?{% endblock %}
+
+{% block content %}
+<form action="{% url 'delete_type' type.type_id %}" method="post">
+    {% csrf_token %}
+    <button name="submit" class="btn btn-primary">Eliminar</button>
+    <a href="{% url 'catalogue' %}" class="btn btn-danger">Cancelar</a>
+</form>
+{% endblock content %}

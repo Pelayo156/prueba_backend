@@ -1,0 +1,12 @@
+{% extends 'products/admin_layout.html' %}
+{% block title %}Nuevo Tipo{% endblock title %}
+
+{% block header %}Agregar Nuevo Tipo{% endblock header %}
+{% block content %}
+<form action="{% url 'new_type' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary" name="submit">Agregar</button>
+    <a href="{% url 'catalogue' %}" class="btn btn-danger">Cancelar</a>
+</form>
+{% endblock content %}

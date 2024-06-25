@@ -1,0 +1,12 @@
+{% extends 'products/admin_layout.html' %}
+{% block title %}Editar Producto{% endblock title %}
+
+{% block header %}Editar Producto '{{ product.name }}'{% endblock header %}
+{% block content %}
+<form action="{% url 'edit_product' product.product_id %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary" name="submit">Editar</button>
+    <a href="{% url 'catalogue' %}" class="btn btn-danger">Cancelar</a>
+</form>
+{% endblock content %}

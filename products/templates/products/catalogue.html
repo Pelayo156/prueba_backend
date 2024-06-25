@@ -1,0 +1,115 @@
+{% extends 'products/admin_layout.html' %}
+{% block title %}Catálogo{% endblock title %}
+
+{% block header %}Catálogo de Productos{% endblock header %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-2">
+            <a class="btn btn-success" href="{% url 'new_category' %}">Agregar Categoría</a>
+        </div>
+        <div class="col-2">
+            <a class="btn btn-info" href="{% url 'new_product' %}">Agregar Producto</a>
+        </div>
+        <div class="col-2">
+            <a class="btn btn-warning" href="{% url 'new_type' %}">Agregar Tipo</a>
+        </div>
+    </div>
+</div>
+
+<h1 class="table-name content-title">Categorías</h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-5">
+            <table class="table table-light table-hover table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for category in categories %}
+                    <tr>
+                        <th scope="row">{{category.category_id}}</th>
+                        <td>{{category.name}}</td>
+                        <td>
+                            <a href="{% url 'edit_category' category.category_id %}" class="btn btn-primary">Editar</a>
+                            <a href="{% url 'delete_category' category.category_id %}" class="btn btn-danger" style="margin-left: 15px;">Eliminar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<h1 class="table-name content-title">Tipos</h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-5">
+            <table class="table table-light table-hover table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for type in types %}
+                    <tr>
+                        <th scope="row">{{type.type_id}}</th>
+                        <td>{{type.name}}</td>
+                        <td>
+                            <a href="{% url 'edit_type' type.type_id %}" class="btn btn-primary">Editar</a>
+                            <a href="{% url 'delete_type' type.type_id %}" class="btn btn-danger" style="margin-left: 15px;">Eliminar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<h1 class="table-name content-title">Productos</h1>
+<div class="container-lg">
+    <div class="row justify-content-center">
+        <div class="col-11">
+            <table class="table table-dark table-hover table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Categoría</th>
+                        <th scope="col">Imagen</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                    <tr>
+                        <th scope="row">{{product.product_id}}</th>
+                        <td>{{product.name}}</td>
+                        <td>${{product.price}}</td>
+                        <td>{{product.type_id.name}}</td>
+                        <td>{{product.category_id.name}}</td>
+                        <td><img src="{{product.image.url}}" alt="" style="width: 80px; height: 80px;"></td>
+                        <td>
+                            <a href="{% url 'edit_product' product.product_id %}" class="btn btn-primary">Editar</a>
+                            <a href="{% url 'delete_product' product.product_id %}" class="btn btn-danger" style="margin-left: 15px;">Eliminar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}

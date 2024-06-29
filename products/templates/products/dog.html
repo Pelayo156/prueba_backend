@@ -22,9 +22,10 @@
             <div class="card-body">
                 <p class="card-title">{{product.name}}</p>
                 <p class="card-text" style="font-weight: 600;">$ {{product.price}}</p>
-                <form class="mas-vendido">
-                    <input type="number" name="product_id" value="{{product.product_id}}" hidden>
-                    <input class="btn btn-danger comprar" type="submit" value="Agregar al carrito">
+                <form action="{% url 'cart_add' product.product_id %}" class="mas-vendido" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input class="btn btn-danger comprar" type="submit" value="Agreagar al carrito">
                 </form>
             </div>
         </div>

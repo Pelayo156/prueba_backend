@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from . import models
 from .forms import ProductForm, CategoryForm, TypeForm
 from cart.cart import Cart
+from cart import forms
 
 # View para página principal
 def index(request):
@@ -10,9 +11,11 @@ def index(request):
     products1 = models.Product.objects.all()[0:4]
     products2 = models.Product.objects.all()[4:8]
 
+    form = forms.AddToCartForm()
     context = {
         'products1': products1,
-        'products2': products2
+        'products2': products2,
+        'form': form
     }
     return render(request, 'products/index.html', context)
 
@@ -22,6 +25,7 @@ def about(request):
 
 # View para página perro
 def dog(request):
+    form = forms.AddToCartForm()
     # Crear lista solo para agregar productos de tipo Perro
     dog_list = []
 
@@ -30,12 +34,14 @@ def dog(request):
             dog_list.append(product)
 
     context = {
-        'products': dog_list
+        'products': dog_list,
+        'form': form
     }
     return render(request, 'products/dog.html', context)
 
 # View para página gato
 def cat(request):
+    form = forms.AddToCartForm()
     # Crear lista solo para agregar productos de tipo Gato
     cat_list = []
 
@@ -44,7 +50,8 @@ def cat(request):
             cat_list.append(product)
 
     context = {
-        'products': cat_list
+        'products': cat_list,
+        'form': form
     }
     return render(request, 'products/cat.html', context)
 

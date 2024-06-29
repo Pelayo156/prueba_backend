@@ -13,6 +13,8 @@ def cart_add(request, product_id):
     if form.is_valid():
         cd = form.cleaned_data
         cart.add(product=product, quantity=cd['quantity'], update_quantity=cd['update'])
+    else:
+        print("Envio de formulario invalido")
     return redirect('cart')
 
 def cart_remove(request, product_id):

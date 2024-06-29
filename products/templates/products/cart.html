@@ -23,17 +23,33 @@
 <!-- Carrito (body) -->
 <div class="container-lg" style="margin: 50px; text-align: center;" id="body-carrito">
     {% if cart|length > 0 %}
-    <div class="container producto-carrito">
-        <div class="row">
-            <div class="col-2">
-                <img src="${producto.url_image}" alt="" class="img-carrito">
-            </div>
-            <div class="col-6 text-left">
-                <p>Nombre: ${producto.nombre}</p>
-                <p>Precio: $${producto.precio}</p>
+        {% for item in cart %}
+        <div class="container producto-carrito">
+            <div class="row">
+                <div class="col-2">
+                    <img src="{{ item.product.image.url }}" alt="" class="img-carrito">
+                </div>
+                <div class="col-6 text-left">
+                    <p>Nombre: {{ item.product.name }}</p>
+                    <p>Precio: ${{ item.price }}</p>
+                    <p>Cantidad: {{ item.quantity }}</p>
+                    <form action="{% url 'cart_remove' item.product.product_id %}" method="post">
+                        {% csrf_token %}
+                        <input class="btn btn-danger comprar" type="submit" value="Eliminar">
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
+        {% endfor %}
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-4 text-left">
+                    <h3 style="text-decoration: underline;">Detalle</h3>
+                    <h4 class="detalle-compra">Total productos: {{ cart|length }}</h4>
+                    <h4 class="detalle-compra">Total compra: ${{ cart.get_total_price }}</h4>
+                </div>
+            </div>
+        </div>    
     {% else %}
     <h1>Tu carrito está vacio... ):</h1>
     {% endif %}

@@ -42,7 +42,7 @@ class Cart:
         # Obtengo los ids de los productos que han sido agregados al carrito
         product_ids = self.cart.keys()
         # Obtengo los productos que coincidan con el id de la lista de productos anterior desde la base de datos
-        products = Product.objects.filter(id__in=product_ids)
+        products = Product.objects.filter(product_id__in=product_ids)
         for product in products:
             self.cart[str(product.product_id)]['product'] = product
 
@@ -57,7 +57,7 @@ class Cart:
 
     # Método para obtener el precio total del carrito
     def get_total_price(self):
-        return sum(item['price'] * item['quantity'] for item in self.cart.values())
+        return sum(int(item['price']) * item['quantity'] for item in self.cart.values())
 
     # Método para limpiar el carrito de compras y dejarlo sin productos dentro
     def clear(self):

@@ -12,3 +12,11 @@ def cart_add(request, product_id):
     form = AddToCartForm(request.POST)
     if form.is_valid():
         cd = form.cleaned_data
+        cart.add(product=product, quantity=cd['quantity'], update_quantity=cd['update'])
+    return redirect('cart')
+
+def cart_remove(request, product_id):
+    cart = Cart(request)
+    product = get_object_or_404(Product, pk=product_id)
+    cart.remove(product)
+    return redirect('cart')

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 
 from . import models
 from .forms import ProductForm, CategoryForm, TypeForm
+from cart.cart import Cart
 
 # View para página principal
 def index(request):
@@ -49,7 +50,12 @@ def cat(request):
 
 # View para página de carro
 def cart(request):
-    return render(request, 'products/cart.html')
+    cart = Cart(request)
+
+    context = {
+        'cart': cart
+    }
+    return render(request, 'products/cart.html', context)
 
 # View para ver el catálogo de productos
 def catalogue(request):

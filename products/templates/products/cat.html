@@ -25,7 +25,7 @@
                 <form action="{% url 'cart_add' product.product_id %}" class="mas-vendido" method="post">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <input class="btn btn-danger comprar" type="submit" value="Agreagar al carrito">
+                    <input class="btn btn-danger comprar" type="submit" value="Agregar al carrito">
                 </form>
             </div>
         </div>

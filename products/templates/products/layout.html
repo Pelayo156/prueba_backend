@@ -45,7 +45,7 @@
 
       <div class="col-1"></div>
 
-      <div class="col-6 align-content-center">
+      <div class="col-5 align-content-center">
         <nav class="navbar navbar-expand-lg" style="width: 100%; height: 100%; padding: 0;">
           <div class="collapse navbar-collapse" id="navbarNav" style="width: 100%; height: 100%;">
             <ul class="navbar-nav" style="padding: 0px 12px; width: 100%; height: 100%;">
@@ -68,50 +68,22 @@
           </div>
         </nav>
       </div>
-      <div>
-      </div>
+
       <!--Checkbox-->
-      <div class="col-2">
+      <div class="col-3">
         <label id="switch">
           <input type="checkbox">
           <span class="slider round"></span>
         </label>
-        <a style="text-decoration: none; cursor: pointer;" data-toggle="modal" data-target="#modal-login">
-          <i class="fa-regular fa-user icon-menu"></i>
-        </a>
+        {% if user.is_authenticated %}
+          <p id="name-menu"><i class="fa-regular fa-user icon-menu" style="margin-right: 5px;"></i>{{ user.username }}</p>
+          <a href="{% url 'logout' %}" class="item-menu">Cerrar sesión</a>
+        {% else %}
+          <a href="{% url 'login' %}" class="item-menu"><i class="fa-regular fa-user icon-menu" style="margin-right: 5px;"></i>Iniciar sesión</a>
+        {% endif %}
         <a href="{% url 'cart' %}" style="text-decoration: none;">
           <i class="fa-solid fa-cart-shopping icon-menu"></i>
         </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Login Modal -->
-  <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content" style="border-radius: 30px;">
-        <div class="modal-header" style="background-color: white; border-top-left-radius: 20px; border-top-right-radius: 20px;">
-          <h5 class="modal-title" style="color: black;">Login</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-left: 0; color: white;">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body" style="background-color: white;">
-          <form>
-            <div class="form-group">
-              <label for="email-user" class="label-login" style="color: black;">Email</label>
-              <input type="email" class="form-control" id="email-user" aria-describedby="emailHelp" placeholder="Ingrese su email...">
-            </div>
-            <div class="form-group">
-              <label for="password-user" class="label-login" style="color: black;">Contraseña</label>
-              <input type="password" class="form-control" id="password-user" aria-describedby="emailHelp" placeholder="Ingrese su contraseña...">
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer justify-content-center" style="background-color: white; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" id="btn-login">Ingresar</button>
-        </div>
       </div>
     </div>
   </div>

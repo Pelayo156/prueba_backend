@@ -8,6 +8,7 @@ body, html {
     height: 100%;
     margin: 0;
     display: flex;
+    text-align: center;
     justify-content: center;
     align-items: center;
 }
@@ -18,5 +19,30 @@ body, html {
 
 .warning-button {
     padding: 5px;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.btn{
+    margin-bottom: 10px;
+}
+
+#id_username{
+    margin-left: 5px;
+}
+
+#id_password{
+    margin-left: 10px;
+}
+
+#id_password1{
+    margin-left: 8px;
+}
+
+li{
+    margin-bottom: 3px;
+}
+
+.errorlist{
+    color: red;
 }

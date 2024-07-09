@@ -275,6 +275,10 @@
         z-index: -1;
     }
 
+    .back_to{
+        color: var(--color-fuente);
+    }
+
     .detalle-compra {
         color: gray;
         font-family: Arial, Helvetica, sans-serif;

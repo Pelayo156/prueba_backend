@@ -1,0 +1,22 @@
+.base-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form {
+    padding: 25px 50px;
+}
+
+.warning-button {
+    padding: 5px;
+    margin-bottom: 20px; 
+}

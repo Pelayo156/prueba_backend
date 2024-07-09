@@ -77,7 +77,7 @@
         </label>
         {% if user.is_authenticated %}
           <p id="name-menu"><i class="fa-regular fa-user icon-menu" style="margin-right: 5px;"></i>{{ user.username }}</p>
-          <a href="{% url 'logout' %}" class="item-menu">Cerrar sesión</a>
+          <button type="button" class="item-menu" data-toggle="modal" data-target="#logoutModal">Cerrar sesión</button>
         {% else %}
           <a href="{% url 'login' %}" class="item-menu"><i class="fa-regular fa-user icon-menu" style="margin-right: 5px;"></i>Iniciar sesión</a>
         {% endif %}
@@ -87,6 +87,27 @@
       </div>
     </div>
   </div>
+
+<!-- Modal -->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">Cerrar sesión</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>¿{{ user.username }} estás seguro de que quieres cerrar sesión?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <a href="{% url 'logout' %}" class="btn btn-primary">Cerrar</a>
+      </div>
+    </div>
+  </div>
+</div>
 
   <!-- Contenido que cambiará en cada vista -->
   {% block content %}

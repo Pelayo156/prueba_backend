@@ -3,10 +3,10 @@
 
 {% block header %}Editar Tipo '{{ type.name }}'{% endblock header %}
 {% block content %}
-<form action="{% url 'edit_type' type.type_id %}" method="post">
+<form style="display: block; text-align: center;" action="{% url 'edit_type' type.type_id %}" method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button class="btn btn-primary" name="submit">Editar</button>
-    <a href="{% url 'catalogue' %}" class="btn btn-danger">Cancelar</a>
+    <button class="btn btn-primary" style="margin: 10px;" name="submit">Editar</button>
+    <a href="{% url 'catalogue' %}" style="margin: 10px;" class="btn btn-danger">Cancelar</a>
 </form>
 {% endblock content %}

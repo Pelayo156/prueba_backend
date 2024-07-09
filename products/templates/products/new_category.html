@@ -3,10 +3,10 @@
 
 {% block header %}Agregar Nueva Categoría{% endblock header %}
 {% block content %}
-<form action="{% url 'new_category' %}" method="post"">
+<form style="display: block; text-align: center;" action="{% url 'new_category' %}" method="post"">
     {% csrf_token %}
     {{ form.as_p }}
-    <button class="btn btn-primary" name="submit">Agregar</button>
-    <a href="{% url 'catalogue' %}" class="btn btn-danger">Cancelar</a>
+    <button class="btn btn-primary" style="margin: 10px;" name="submit">Agregar</button>
+    <a href="{% url 'catalogue' %}" style="margin: 10px;" class="btn btn-danger">Cancelar</a>
 </form>
 {% endblock content %}

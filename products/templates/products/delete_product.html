@@ -4,9 +4,9 @@
 {% block header %}¿Estás seguro de que deseas eliminar el producto '{{product.name}}'?{% endblock %}
 
 {% block content %}
-<form action="{% url 'delete_product' product.product_id %}" method="post">
+<form style="display: block; text-align: center;" action="{% url 'delete_product' product.product_id %}" method="post">
     {% csrf_token %}
-    <button name="submit" class="btn btn-primary">Eliminar</button>
+    <button name="submit" style="margin: 10px;" class="btn btn-primary">Eliminar</button>
     <a href="{% url 'catalogue' %}" class="btn btn-danger">Cancelar</a>
 </form>
 {% endblock content %}
